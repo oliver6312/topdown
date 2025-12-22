@@ -12,9 +12,6 @@ radius = 5.0
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
 script = ExtResource("1_k0nm2")
-speed = null
-acceleration = null
-friction = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_41ync")

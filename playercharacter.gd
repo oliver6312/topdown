@@ -29,15 +29,3 @@ func _physics_process(delta):
 	look_at(mouse_pos)
 	get_input()
 	move_and_slide()
-
-func _on_left_hand_area_entered(area: Area2D) -> void:
-	_add_candidate(left_candidates, area)
-
-func _on_left_hand_area_exited(area: Area2D) -> void:
-	_remove_candidate(left_candidates, area)
-
-func _on_left_hand_body_entered(body: Node2D) -> void:
-	_add_candidate(left_candidates, body)
-
-func _on_left_hand_body_exited(body: Node2D) -> void:
-	_remove_candidate(left_candidates, body)
