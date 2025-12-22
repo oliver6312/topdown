@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyi42g57nldua"]
+
+[ext_resource type="Texture2D" uid="uid://bqsdgbajtcbw1" path="res://graphics/td_item_branch0.1.png" id="1_cxsfh"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tcqvt"]
+a = Vector2(4, -5)
+b = Vector2(-8, 9)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cxsfh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_tcqvt")
