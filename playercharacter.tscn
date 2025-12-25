@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsyucm4uhitxc"]
+[gd_scene load_steps=7 format=3 uid="uid://bsyucm4uhitxc"]
 
-[ext_resource type="Texture2D" uid="uid://33eocgt7iybv" path="res://graphics/td_sprite_playerCharacter0.1.png" id="1_41ync"]
-[ext_resource type="Script" uid="uid://dk8bt3x0m87g2" path="res://playercharacter.gd" id="1_k0nm2"]
+[ext_resource type="Script" uid="uid://bep8dp2ewjnox" path="res://playercharacter.gd" id="1_k0nm2"]
+[ext_resource type="Texture2D" uid="uid://ch6p3545cqden" path="res://Assets/td_sprite_playerCharacter0.1.png" id="2_k0nm2"]
+[ext_resource type="Script" uid="uid://dubjy4qeokw8o" path="res://left_hand.gd" id="3_a2660"]
+[ext_resource type="Script" uid="uid://droctcrc6iu0h" path="res://right_hand.gd" id="4_61pmj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k0nm2"]
 radius = 7.0
@@ -10,11 +12,11 @@ height = 22.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_a2660"]
 radius = 5.0
 
-[node name="PlayerCharacter" type="CharacterBody2D"]
+[node name="PlayerCharacter" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_k0nm2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_41ync")
+texture = ExtResource("2_k0nm2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
@@ -25,25 +27,32 @@ shape = SubResource("CapsuleShape2D_k0nm2")
 [node name="LeftHand" type="Area2D" parent="Hands"]
 collision_layer = 4
 collision_mask = 4
+script = ExtResource("3_a2660")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hands/LeftHand"]
 position = Vector2(5, -11)
 shape = SubResource("CircleShape2D_a2660")
 
-[node name="Marker2D" type="Marker2D" parent="Hands/LeftHand"]
+[node name="HoldPoint" type="Marker2D" parent="Hands/LeftHand"]
 position = Vector2(5, -11)
+rotation = 1.0472
 
 [node name="RightHand" type="Area2D" parent="Hands"]
 collision_layer = 4
 collision_mask = 4
+script = ExtResource("4_61pmj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hands/RightHand"]
 position = Vector2(4, 12)
 shape = SubResource("CircleShape2D_a2660")
 
-[node name="Marker2D" type="Marker2D" parent="Hands/RightHand"]
+[node name="HoldPoint" type="Marker2D" parent="Hands/RightHand"]
 position = Vector2(4, 12)
+rotation = -1.0472
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
 zoom = Vector2(2, 2)
+
+[connection signal="body_entered" from="Hands/LeftHand" to="Hands/LeftHand" method="_on_body_entered"]
+[connection signal="body_entered" from="Hands/RightHand" to="Hands/RightHand" method="_on_body_entered"]

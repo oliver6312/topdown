@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqsdgbajtcbw1"
-path="res://.godot/imported/td_item_branch0.1.png-aa9e4a9c2f7ea42651417d426eca7947.ctex"
+uid="uid://cunq6xpeffho3"
+path="res://.godot/imported/td_sprite_bareMan1.1.png-976a579352988f8b5ff35ee79d057432.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/td_item_branch0.1.png"
-dest_files=["res://.godot/imported/td_item_branch0.1.png-aa9e4a9c2f7ea42651417d426eca7947.ctex"]
+source_file="res://Assets/td_sprite_bareMan1.1.png"
+dest_files=["res://.godot/imported/td_sprite_bareMan1.1.png-976a579352988f8b5ff35ee79d057432.ctex"]
 
 [params]
 

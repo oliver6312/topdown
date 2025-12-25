@@ -1,17 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyi42g57nldua"]
+[gd_scene load_steps=4 format=3 uid="uid://cyi42g57nldua"]
 
-[ext_resource type="Texture2D" uid="uid://bqsdgbajtcbw1" path="res://graphics/td_item_branch0.1.png" id="1_cxsfh"]
+[ext_resource type="Texture2D" uid="uid://723v3arraist" path="res://Assets/td_item_branch0.1.png" id="1_cxsfh"]
+[ext_resource type="Script" uid="uid://cyvqm6dtsswls" path="res://item_branch.gd" id="1_tcqvt"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tcqvt"]
 a = Vector2(4, -5)
 b = Vector2(-8, 9)
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="RigidBody2D" type="RigidBody2D" groups=["items"]]
 collision_layer = 4
 collision_mask = 4
+gravity_scale = 0.0
+script = ExtResource("1_tcqvt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9, -10)
 texture = ExtResource("1_cxsfh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, -9)
 shape = SubResource("SegmentShape2D_tcqvt")

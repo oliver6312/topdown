@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1vrspnwb236a"]
+
+[ext_resource type="Script" uid="uid://cocrc5pwrtcb" path="res://long_sword.gd" id="1_0tkbo"]
+[ext_resource type="Texture2D" uid="uid://dfu1hohu7ewl2" path="res://Assets/td_item_sword0.1.png" id="1_7eyfn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tkbo"]
+size = Vector2(8, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4nd1"]
+size = Vector2(13.7138, 20)
+
+[node name="RigidBody2D" type="RigidBody2D" groups=["items"]]
+collision_layer = 4
+collision_mask = 4
+gravity_scale = 0.0
+script = ExtResource("1_0tkbo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(20, 0)
+texture = ExtResource("1_7eyfn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_0tkbo")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(24, 0)
+scale = Vector2(2.47926, -0.0946486)
+shape = SubResource("RectangleShape2D_g4nd1")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
